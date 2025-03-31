@@ -6,7 +6,8 @@ import cv2
 import mmcv
 import numpy as np
 import torch
-from mmcv.runner import load_checkpoint
+# from mmcv.runner import load_checkpoint  --depreciated and migrated to mmengine
+from mmengine.runner import load_checkpoint
 from mmedit.core import tensor2img
 
 from realbasicvsr.models.builder import build_model
