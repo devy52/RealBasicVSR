@@ -1,6 +1,8 @@
 import torch.nn as nn
-from mmcv import build_from_cfg
-from mmedit.models.registry import BACKBONES, COMPONENTS, LOSSES, MODELS
+# from mmcv import build_from_cfg
+from mmengine.registry import build_from_cfg
+# from mmedit.models.registry import BACKBONES, COMPONENTS, LOSSES, MODELS
+from .registry import BACKBONES, COMPONENTS, LOSSES, MODELS
 
 
 def build(cfg, registry, default_args=None):
