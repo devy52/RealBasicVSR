@@ -1,16 +1,12 @@
 import torch.nn as nn
-# from mmcv import build_from_cfg
-from mmengine.registry import build_from_cfg
-# from mmedit.models.registry import BACKBONES, COMPONENTS, LOSSES, MODELS
-from .registry import BACKBONES, COMPONENTS, LOSSES, MODELS
+from mmengine.registry import MODELS, build_from_cfg
 
-
-def build(cfg, registry, default_args=None):
+def build(cfg, registry=MODELS, default_args=None):
     """Build module function.
 
     Args:
         cfg (dict): Configuration for building modules.
-        registry (obj): ``registry`` object.
+        registry (obj): ``registry`` object, defaults to MODELS.
         default_args (dict, optional): Default arguments. Defaults to None.
     """
     if isinstance(cfg, list):
@@ -28,7 +24,7 @@ def build_backbone(cfg):
     Args:
         cfg (dict): Configuration for building backbone.
     """
-    return build(cfg, BACKBONES)
+    return build(cfg)
 
 
 def build_component(cfg):
@@ -37,7 +33,7 @@ def build_component(cfg):
     Args:
         cfg (dict): Configuration for building component.
     """
-    return build(cfg, COMPONENTS)
+    return build(cfg)
 
 
 def build_loss(cfg):
@@ -46,7 +42,7 @@ def build_loss(cfg):
     Args:
         cfg (dict): Configuration for building loss.
     """
-    return build(cfg, LOSSES)
+    return build(cfg)
 
 
 def build_model(cfg, train_cfg=None, test_cfg=None):
@@ -57,4 +53,4 @@ def build_model(cfg, train_cfg=None, test_cfg=None):
         train_cfg (dict): Training configuration. Default: None.
         test_cfg (dict): Testing configuration. Default: None.
     """
-    return build(cfg, MODELS, dict(train_cfg=train_cfg, test_cfg=test_cfg))
+    return build(cfg, default_args=dict(train_cfg=train_cfg, test_cfg=test_cfg))
