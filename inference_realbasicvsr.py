@@ -6,6 +6,7 @@ import cv2
 import mmcv
 import numpy as np
 import torch
+from mmengine
 # from mmcv.runner import load_checkpoint  --depreciated and migrated to mmengine
 from mmengine.runner import load_checkpoint
 # from mmedit.core import tensor2img  --migrated to mmagic.utils.img_utils
@@ -55,7 +56,7 @@ def init_model(config, checkpoint=None):
     """
 
     if isinstance(config, str):
-        config = mmcv.Config.fromfile(config)
+        config = mmengine.Config.fromfile(config)
     elif not isinstance(config, mmcv.Config):
         raise TypeError('config must be a filename or Config object, '
                         f'but got {type(config)}')
