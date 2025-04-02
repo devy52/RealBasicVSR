@@ -6,7 +6,7 @@ import cv2
 import mmcv
 import numpy as np
 import torch
-from mmengine
+import mmengine
 # from mmcv.runner import load_checkpoint  --depreciated and migrated to mmengine
 from mmengine.runner import load_checkpoint
 # from mmedit.core import tensor2img  --migrated to mmagic.utils.img_utils
